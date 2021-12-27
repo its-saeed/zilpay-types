@@ -1,6 +1,6 @@
 {
   "name": "@nft-game-co/zilpay-types",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Types for using zilpay in typescript apps",
   "main": "index.js",
   "repository": "https://github.com/NFTGameCo/zilpay-types.git",
