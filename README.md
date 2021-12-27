@@ -29,6 +29,9 @@ npm install @nft-game-co/zilpay-types
 To use the extension you can extend the window object with the type.
 
 ```ts
+import { ZilPay } from '@nft-game-co/zilpay-types'
+
+
 declare global {
     interface Window {
         zilPay: ZilPay;
