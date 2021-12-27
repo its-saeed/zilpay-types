@@ -13,13 +13,13 @@ These are the types for the Zilpay  wallet and libraries. We created this packag
 Symply run the following:
 
 ```bash
-yarn add zilpay-types
+yarn add @nft-game-co/zilpay-types
 ```
 
 or
 
 ```bash
-npm install zilpay-types
+npm install @nft-game-co/zilpay-types
 ```
 
 ---
