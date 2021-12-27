@@ -3,6 +3,7 @@ export interface ZilPay {
     blockchain: ZilPayBlockchain
     crypto: ZilPayCrypto
     utils: ZilPayUtils
+    transactions: ZilPayTransactions
 }
 
 export interface ZilPayWallet {
@@ -33,6 +34,24 @@ export interface ZilPayWallet {
     }
 }
 
+export interface ZilPayTransactions {
+    // toDs to know if should send to normal or Ds shard
+    // https://blog.zilliqa.com/provisioning-sharding-for-smart-contracts-a-design-for-zilliqa-cd8d012ee735.
+    new: (transactionParams: ZilPayTransactionProps, toDs: boolean) => ZilPayTransaction
+}
+
+export interface ZilPayTransaction extends ZilPayBlockchainPayload {
+    result: any
+}
+export interface ZilPayTransactionProps {
+    version: any
+    toAddr: string
+    amount: any, // Sending an amount in Zil (1) and converting the amount to Qa
+    gasPrice: any, // Minimum gasPrice veries. Check the `GetMinimumGasPrice` on the blockchain
+    gasLimit: any,
+
+}
+
 export interface ZilPayCrypto {
     fromBech32Address: (address: string) => string
     toBech32Address: (address: string) => String
@@ -41,6 +60,9 @@ export interface ZilPayCrypto {
 }
 
 export interface ZilPayUtils {
+    bytes: {
+        pack: (chainId: number, msgVersion: number) => any
+    }
     units: {
         fromQa: (qa: any, unit: "zil" | "qa", options?: any) => string | number
         toQa: (input: string, unit: "zil" | "li") => string | number | any
@@ -104,6 +126,12 @@ export interface ZilPayBlockchain {
     }>
     getLatestDSBlock: Promise<ZilPayBlockchainPayload & {
         result: ZilPayBlockchainDSBlock
+    }>
+    getMinimumGasPrice: Promise<ZilPayBlockchainPayload & {
+        result: string
+    }>
+    createTransaction: (tansaction: ZilPayTransaction) => Promise<ZilPayBlockchainPayload & {
+        result: any
     }>
 }
 
