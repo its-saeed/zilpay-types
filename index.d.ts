@@ -84,7 +84,7 @@ export interface ZilPayBlockchain {
             nonce: number
         }
     }>
-    getBlockChainInfo: Promise<ZilPayBlockchainPayload & {
+    getBlockChainInfo: () => Promise<ZilPayBlockchainPayload & {
         result: {
             CurrentDSEpoch: string
             CurrentMiniEpoch: string
@@ -103,7 +103,7 @@ export interface ZilPayBlockchain {
     getContractAddressFromTransactionID: (transactionId: string) => Promise<ZilPayBlockchainPayload & {
         result: string
     }>
-    getCurrentDSEpoch: Promise<ZilPayBlockchainPayload & {
+    getCurrentDSEpoch: () => Promise<ZilPayBlockchainPayload & {
         result: string
     }>
     getCurrentMiniEpoch: (transactionId: string) => Promise<ZilPayBlockchainPayload & {
@@ -121,13 +121,13 @@ export interface ZilPayBlockchain {
             maxPages: number
         }
     }>
-    getDSBlockRate: Promise<ZilPayBlockchainPayload & {
+    getDSBlockRate: () => Promise<ZilPayBlockchainPayload & {
         result: number
     }>
-    getLatestDSBlock: Promise<ZilPayBlockchainPayload & {
+    getLatestDSBlock: () => Promise<ZilPayBlockchainPayload & {
         result: ZilPayBlockchainDSBlock
     }>
-    getMinimumGasPrice: Promise<ZilPayBlockchainPayload & {
+    getMinimumGasPrice: () => Promise<ZilPayBlockchainPayload & {
         result: string
     }>
     createTransaction: (tansaction: ZilPayTransaction) => Promise<ZilPayBlockchainPayload & {
