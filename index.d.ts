@@ -44,11 +44,11 @@ export interface ZilPayTransaction extends ZilPayBlockchainPayload {
     result: any
 }
 export interface ZilPayTransactionProps {
-    version: any
+    version?: any
     toAddr: string
     amount: any, // Sending an amount in Zil (1) and converting the amount to Qa
     gasPrice: any, // Minimum gasPrice veries. Check the `GetMinimumGasPrice` on the blockchain
-    gasLimit: any,
+    gasLimit?: any,
 
 }
 
