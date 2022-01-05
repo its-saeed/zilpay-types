@@ -130,10 +130,9 @@ export interface ZilPayBlockchain {
     getMinimumGasPrice: () => Promise<ZilPayBlockchainPayload & {
         result: string
     }>
-    createTransaction: (tansaction: ZilPayTransaction) => Promise<ZilPayBlockchainPayload & {
-        result: any
-    }>
+    createTransaction: (tansaction: ZilPayTransaction) => Promise<ZilPayTransactionProps & any>
 }
+
 
 export interface ZilPayBlockchainDSBlock {
     header: {
