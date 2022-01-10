@@ -29,7 +29,7 @@ export interface ZilPayWallet {
         unsubscribe: Function
     }
     observableTransaction: (...args: string[]) => {
-        subscribe: (hashs?: string[]) => Promise<any>
+        subscribe: ((hashs?: string[]) => Promise<any>)
         unsubscribe: Function
     }
 }
