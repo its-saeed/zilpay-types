@@ -32,6 +32,7 @@ export interface ZilPayWallet {
         subscribe: any
         unsubscribe: Function
     }
+    addTransactionsQueue: (...args: string[]) => any
 }
 
 export interface ZilPayTransactions {
