@@ -16,20 +16,20 @@ export interface ZilPayWallet {
     connect: () => Promise<boolean>
     sign: () => Promise<{ signature: string, message: string, publicKey: string }>
     verify: Function
-    observableAccount: () => {
+    observableAccount: (...args: string[]) => {
         subscribe: Function
         unsubscribe: Function
     }
-    observableNetwork: () => {
-        subscribe: () => ZilPayNet
+    observableNetwork: (...args: string[]) => {
+        subscribe: (hashs?: string[]) => ZilPayNet
         unsubscribe: Function
     }
-    observableBlock: () => {
-        subscribe: () => any
+    observableBlock: (...args: string[]) => {
+        subscribe: (hashs?: string[]) => any
         unsubscribe: Function
     }
     observableTransaction: (...args: string[]) => {
-        subscribe: () => any
+        subscribe: (hashs?: string[]) => any
         unsubscribe: Function
     }
 }
