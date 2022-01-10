@@ -25,11 +25,11 @@ export interface ZilPayWallet {
         unsubscribe: Function
     }
     observableBlock: (...args: string[]) => {
-        subscribe: (hashs?: string[]) => any
+        subscribe: (hashs?: string[]) => Promise<any>
         unsubscribe: Function
     }
     observableTransaction: (...args: string[]) => {
-        subscribe: (hashs?: string[]) => any
+        subscribe: (hashs?: string[]) => Promise<any>
         unsubscribe: Function
     }
 }
