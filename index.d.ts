@@ -4,6 +4,7 @@ export interface ZilPay {
     crypto: ZilPayCrypto
     utils: ZilPayUtils
     transactions: ZilPayTransactions
+    contracts: ZilPayContracts
 }
 
 export interface ZilPayWallet {
@@ -134,6 +135,31 @@ export interface ZilPayBlockchain {
     createTransaction: (tansaction: ZilPayTransaction) => Promise<ZilPayTransactionProps & any>
 }
 
+
+export interface ZilPayContracts {
+    at: (address: string) => ZilPayContract
+    new: (scillaCode: string, params: ZilPayParam[]) => ZilPayContract
+}
+export interface ZilPayContract {
+    address: string
+    code: undefined | string
+    init: undefined | ZilPayParam[]
+    transaction: any
+    call: (transaction: string, params: ZilPayParam[], config: { amount: any, gasPrice: any, gasLimit: any }) => Promise<[ZilPayTransaction, ZilPayContract]>
+    deploy: (config: { amount: any, gasPrice: any, gasLimit: any }, toDs: boolean) => Promise<[ZilPayTransaction, ZilPayContract]>
+    getInit: () => Promise<ZilPayParam[]>
+    getCode: () => Promise<string>
+    getState: () => Promise<ZilPayContractState & any>
+}
+export interface ZilPayContractState {
+    _balance: string
+    total_supply: string
+}
+export interface ZilPayParam {
+    type: string,
+    value: string,
+    vname: string
+}
 
 export interface ZilPayBlockchainDSBlock {
     header: {
