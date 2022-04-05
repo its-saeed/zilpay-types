@@ -145,7 +145,7 @@ export interface ZilPayContract {
     code: undefined | string
     init: undefined | ZilPayParam[]
     transaction: any
-    call: (transaction: string, params: ZilPayParam[], config: { amount: any, gasPrice: any, gasLimit: any }, toDs: boolean) => Promise<ZilPayTransaction>
+    call: (transaction: string, params: ZilPayParam[], config: { amount: any, gasPrice: any, gasLimit: any }, toDs: boolean) => Promise<ZilPayContractCall>
     deploy: (config: { amount: any, gasPrice: any, gasLimit: any }, toDs: boolean) => Promise<[ZilPayTransaction, ZilPayContract]>
     getInit: () => Promise<ZilPayParam[]>
     getCode: () => Promise<string>
@@ -154,6 +154,24 @@ export interface ZilPayContract {
 export interface ZilPayContractState {
     _balance: string
     total_supply: string
+}
+
+export interface ZilPayContractCall {
+    ID: string
+    Info: string
+    amount: any
+    code: string
+    data: { _tag: string, params: ZilPayParam[] }
+    from: string
+    gasLimit: any
+    gasPrice: any
+    nonce: number
+    priority: boolean
+    pubKey: string
+    receipt: undefined | any
+    signature: string
+    toAddr: string
+    version: number
 }
 export interface ZilPayParam {
     type: string,
