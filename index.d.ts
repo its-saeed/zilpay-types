@@ -10,11 +10,13 @@ export interface ZilPay {
 export interface ObservableNetwork {
   subscribe: (hashs?: string[]) => ZilPayNet;
   unsubscribe: Function;
+  isStopped: boolean;
 }
 
 export interface ObservableAccount {
   subscribe: Function;
   unsubscribe: Function;
+  isStopped: boolean;
 }
 
 export interface ObservableTransaction {
