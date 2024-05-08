@@ -1,10 +1,10 @@
 {
-  "name": "@nft-game-co/zilpay-types",
-  "version": "0.0.15",
+  "name": "zilpay-types",
+  "version": "0.0.1",
   "description": "Types for using zilpay in typescript apps",
   "main": "index.js",
-  "repository": "https://github.com/NFTGameCo/zilpay-types.git",
-  "author": "Burlet Mederic <mederic@nftgameco.com>",
+  "repository": "https://github.com/its-saeed/zilpay-types.git",
+  "author": "Saeed Dadkhah <sa.dadkhah@gmail.com>",
   "license": "GPL-3.0-only",
   "private": false,
   "types": "index.d.ts"
